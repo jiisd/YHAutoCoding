@@ -9,6 +9,12 @@
 #import "NSObject+YHAutoCoding.h"
 #import <objc/runtime.h>
 
+@interface NSObject ()
+
+- (NSArray *)ignoredMemberNames;
+
+@end
+
 @implementation NSObject (YHAutoCoding)
 
 - (void)encode:(NSCoder *)encoder
@@ -26,6 +32,7 @@
             Ivar ivar = ivars[i];
             
             NSString *key = [NSString stringWithUTF8String:ivar_getName(ivar)];
+            
             if ([self respondsToSelector:@selector(ignoredMemberNames)]) {
                 if ([[self ignoredMemberNames] containsObject:key]) continue;
             }
@@ -56,6 +63,7 @@
             Ivar ivar = ivars[i];
             
             NSString *key = [NSString stringWithUTF8String:ivar_getName(ivar)];
+            
             if ([self respondsToSelector:@selector(ignoredMemberNames)]) {
                 if ([[self ignoredMemberNames] containsObject:key]) continue;
             }

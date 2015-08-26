@@ -9,10 +9,7 @@
 #import "NSObject+YHAutoCoding.h"
 #import <objc/runtime.h>
 
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wincomplete-implementation"
 @implementation NSObject (YHAutoCoding)
-#pragma clang diagnostic pop
 
 - (void)encode:(NSCoder *)encoder
 {
@@ -76,4 +73,8 @@
     }
 }
 
+-(NSArray *)ignoredMemberNames {
+    
+    return nil;
+}
 @end

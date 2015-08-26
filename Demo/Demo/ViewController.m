@@ -11,7 +11,6 @@
 #import "UserAccountModel.h"
 #import "UIButton+Demo.h"
 
-
 @interface ViewController ()
 
 @property (nonatomic, strong) UIButton *archiverBtn;
@@ -29,7 +28,21 @@
     [self setupUI];
 }
 
+#pragma mark - 加载数据
 
+- (void)loadUserData {
+    NSDictionary *dict = @{
+                           @"userId" : @"001",
+                           @"avatar" : [NSNull null],
+                           @"username" : @"iOS",
+                           @"email" : @"yahengzheng@163.com",
+                           @"zx_balance" : @"999",
+                           @"zs_balance" : @"111"
+                           };
+    
+    self.userModel = [UserAccountModel accountModelWithDict:dict];
+    //    NSLog(@"%@",self.userModel);
+}
      
 #pragma mark - 准备界面
 
@@ -70,22 +83,6 @@
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-leftMargin-[clearDataBtn]-rightMargin-|" options:0 metrics:metrics views:views]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[unArchiverBtn]-btnSpace-[clearDataBtn(==btnHeight)]" options:0 metrics:metrics views:views]];
     
-}
-
-#pragma mark - 加载数据
-
-- (void)loadUserData {
-    NSDictionary *dict = @{
-                           @"userId" : @"001",
-                           @"avatar" : [NSNull null],
-                           @"username" : @"iOS",
-                           @"email" : @"yahengzheng@163.com",
-                           @"zx_balance" : @"999",
-                           @"zs_balance" : @"111"
-                           };
-    
-    self.userModel = [UserAccountModel accountModelWithDict:dict];
-    //    NSLog(@"%@",self.userModel);
 }
 
 #pragma mark - 点击按钮触发的方法

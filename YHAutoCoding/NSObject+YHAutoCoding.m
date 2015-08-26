@@ -73,7 +73,7 @@
     }
 }
 
--(NSArray *)ignoredMemberNames {
+- (NSArray *)ignoredMemberNames {
     
     return nil;
 }

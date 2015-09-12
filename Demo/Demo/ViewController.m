@@ -46,11 +46,11 @@
      
 #pragma mark - 准备界面
 
-#define btnHeight 40
-#define leftMargin 20
+#define btnHeight   40
+#define leftMargin  20
 #define rightMargin 20
-#define topMargin 90
-#define btnSpace 30
+#define topMargin   90
+#define btnSpace    30
 
 - (void)setupUI {
     [self.view addSubview:self.archiverBtn];
